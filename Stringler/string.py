@@ -1,5 +1,12 @@
+# Stringler (Metinler) integer, float veya boolean tiplerine benzemezler.
+# Stringler birer dizidirler (sequence).
+# Yani, içlerinde sıralanmış olarak başka değerler tutan yapılardır.
+# Python'da dizi tipinde değişkenlerde, index yapısı ile değişkenin elemanlarına erişilir.
+
 # Stringler immutable veri tipidir.
 # Immutable: Elemanlarının değerleri değiştirilemez.
+
+# Genel yapı şu şekildedir: dizi[index]
 
 print(type('Hmm o zaman x=5 diyebilir miyiz?'))
 print(type("5"))
