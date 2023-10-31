@@ -130,3 +130,28 @@ txt = 'Atlar elma yemeyi çok sever.'
 x = txt.replace('elma', 'havuç')
 print('txt:', txt)
 print("x:", x)
+
+
+# split()
+# örnek :
+a = "this is a string"
+a = a.split(" ") # a is converted to a list of strings.
+print (a)
+#['this', 'is', 'a', 'string']
+
+
+# join()
+# Joining a string is simple:
+# örnek :
+a = "this is a string"
+a = "-".join(a)
+print(a)
+
+# count()
+# örnek :
+txt = "I love apples, apple are my favorite fruit"
+x = txt.count("apple")
+print(x)
+
+
+
