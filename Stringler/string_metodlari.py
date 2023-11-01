@@ -154,4 +154,11 @@ x = txt.count("apple")
 print(x)
 
 
+# swapcase() Make the lower case letters upper case and the upper case letters lower case:
+# örnek :
+txt = "Hello My Name Is PETER"
+x = txt.swapcase()
+print(x)
+
+
 
