@@ -3,6 +3,8 @@
 # Python'da tüm nesneler bir id ile tutulur.
 # Nesnenin bellekteki adresi.
 # Id değeri -> id() fonksiyonu ile bulunur.
+ #   id(x) == id(y) kontrolü -> aynılık (identical) -> nesneler
+
 liste = ['a', 'b', 'c', 'd', 'e', 'f']
 yeni_liste = liste[:]
 baska_liste = liste[:]
@@ -19,3 +21,4 @@ print(id(yeni_liste))
 
 # baska_liste'nin id'si
 print(id(baska_liste))
+
