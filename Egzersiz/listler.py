@@ -92,3 +92,31 @@ toplam = ic_ice_toplam(liste)
 
 print(toplam)
 # 49
+
+
+# Soru 4:
+# Parametre olarak bir liste alan bir fonksiyon yazınız. Adı kareler olsun.
+# Fonksiyonumuz listedeki her bir elemanın karesini hesaplayacak ve yeni bir listeye ekleyecek. Sonuçta bu yeni listeyi dönecek. Yani parametre olarak gelen listedeki, elemanların karesini tutan yeni bir liste verecek.
+# Örnek:
+# dizi = [1,2,3,4,5]
+# kareler(dizi) -> [1, 4, 9, 16, 25]
+# Çözüm 4:
+
+def kareler(liste):
+    
+    # yeni listeyi tutan bir değişken
+    #yeni_liste = []
+    yeni_liste = list()
+    
+    for i, eleman in enumerate(liste):
+        yeni_liste.append(eleman**2)
+        
+    return yeni_liste
+
+
+dizi = [1,2,3,4,5]
+
+sonuc = kareler(dizi)
+
+print(sonuc)
+# [1, 4, 9, 16, 25]
