@@ -77,4 +77,22 @@ print('b:', b)
 print(a is b)
 # True
 
+# List'in Argüman olarak Fonksiyona Geçilmesi¶
+# Fonksiyon içinde Listeyi Değiştirme (Mutate Etme) Örneği:
+# Örnek:
+harfler = ['a', 'b', 'c']
 
+print("Fonksiyona geçilmeden önce harfler:", harfler)
+
+def buyuk_harf_ekle(harf_listesi):
+    harf_listesi.insert(1, 'A')
+    harf_listesi.insert(3, 'B')
+    harf_listesi.insert(5, 'C')
+    
+
+# fonksiyonu çağır
+buyuk_harf_ekle(harfler)
+
+print("Fonksiyona geçildikten sonra harfler:", harfler)
+# Fonksiyona geçilmeden önce harfler: ['a', 'b', 'c']
+# Fonksiyona geçildikten sonra harfler: ['a', 'A', 'b', 'B', 'c', 'C']
