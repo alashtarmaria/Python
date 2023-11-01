@@ -73,3 +73,37 @@ print(c)
 print(a)
 # [4, 2, 1, 6, 3]
 
+# clear()
+# listeyi temizler 
+meyve = ["muz", "erik", "ananas"]
+meyve.clear()
+print(meyve)
+
+# copy()
+# listenin kopyasını oluşturur
+meyve = ["muz", "erik", "ananas"]
+x = meyve.copy()
+print(x)
+
+
+# count()
+meyve = ["muz", "erik", "ananas"]
+x = meyve.count("muz")
+print(x)
+
+
+# index()
+# What is the position of the value "cherry":
+meyve = ["muz", "erik", "ananas"]
+x = meyve.index("muz")
+print(x)
+
+
+# reverse()
+meyve = ["muz", "erik", "ananas"]
+meyve.reverse()
+print(meyve)
+
+
+
+
