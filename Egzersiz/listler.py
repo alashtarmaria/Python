@@ -1,12 +1,12 @@
 # Soru 1:
-# Parametre olarak bir liste alan bir fonksiyon yazın. Adı toplam olsun.
+# Parametre olarak bir liste alan bir fonksiyon yazın. Adı toplam_fark olsun.
 # Bu fonksiyon kendisine verilen listenin tüm elemanlarını toplasın ve geriye genel toplam dönsün.
 # Örnek:
     # liste = [1, 2, 3, 4, 5] 
     # toplam(liste) -> 15
 
 # Çözüm 1:
-def toplam(liste):
+def toplam_fark(liste):
     
     # toplam değişkeni
     toplam = 0
@@ -18,12 +18,12 @@ def toplam(liste):
     
 
 liste = [1, 2, 3, 4, 5] 
-genel_toplam = toplam(liste)
+genel_toplam = toplam_fark(liste)
 print(genel_toplam)    
 # 15
 
 liste = [10, 20, 30, 40, 500] 
-genel_toplam = toplam(liste)
+genel_toplam = toplam_fark(liste)
 print(genel_toplam)
 # 600
 
@@ -36,7 +36,6 @@ print(genel_toplam)
 # liste = [[5, 8], [1, 4, 7], [10], 3]
 # iki_seviye_toplam(liste) -> 38
 # Çözüm 2:
-
 def iki_seviye_toplam(dizi):
     
     toplam = 0
@@ -58,6 +57,30 @@ toplam = iki_seviye_toplam(liste)
 print(toplam)    
 # 38
 
+# 2.yol 
+# Çözüm 2:
+
+def iki_seviye_toplam(liste):
+    toplam = 0
+    
+    for eleman in liste :
+        if type(eleman) == str:
+            continue
+        elif type(eleman) == list:
+            for ic_eleman in eleman :
+                toplam += ic_eleman 
+        
+        elif str(eleman).isdigit() :
+            toplam += eleman
+            
+    return toplam   
+ 
+
+liste = [[5, 8], [1, 4, 7], [10], 3, 10,'a']
+toplam = iki_seviye_toplam(liste)
+print(toplam)  
+# 48
+
 
 # Soru 3:
 # Soru 2'de yazdığımız fonksiyon sadece 2 seviyeli iç içe liste alabiliyordu. Şimdi bunu jenerik bir hale getirelim ve her seviye iç içe listeyi toplayabilsin. İsmi ic_ice_toplam olsun.
@@ -67,7 +90,6 @@ print(toplam)
 # ic_ice_toplam(liste) -> 49
 # İpucu: Recursive
 # Çözüm 3:
-
 def ic_ice_toplam(dizi):
     
     toplam = 0
@@ -86,10 +108,9 @@ def ic_ice_toplam(dizi):
             
     return toplam
 
+
 liste = [[5, 8], [1, 4, 7, [8, 2]], [10, [-1, 2]], 3]
-
 toplam = ic_ice_toplam(liste)
-
 print(toplam)
 # 49
 
@@ -101,7 +122,6 @@ print(toplam)
 # dizi = [1,2,3,4,5]
 # kareler(dizi) -> [1, 4, 9, 16, 25]
 # Çözüm 4:
-
 def kareler(liste):
     
     # yeni listeyi tutan bir değişken
@@ -115,8 +135,160 @@ def kareler(liste):
 
 
 dizi = [1,2,3,4,5]
-
 sonuc = kareler(dizi)
-
 print(sonuc)
 # [1, 4, 9, 16, 25]
+
+
+# Soru 5:
+# Parametre olarak bir liste alan bir fonksiyon yazınız. Adı kareler_toplami olsun.
+# Fonksiyonumuz listenin başından başlarak elemanların karelerini alacak. Bu kareleri toplayarak yeni bir liste oluşturacak. Oluşan yeni listenin her bir elemanı, parametre olan gelen listedeki o index'e kadar olan kareler toplamı olacak.
+# Yani, yeni listedeki 4. eleman, gelen listedeki 1-2-3-4. elemanların kareleri toplamı olacak.
+# Böylece sona kadar gidecek. Ve bu şekilde oluşan yeni listeyi dönecek.
+# Örnek:
+# dizi = [1,2,3,4,5] 
+# kareler_toplami(dizi) -> [1, 5, 15, 37, 83]
+# İpucu:
+
+# Soru 1'de yazdığınız toplam fonksiyonunu kullanabilirsiniz
+# Çözüm 5:
+def kareler_toplami(liste):
+    
+    yeni_liste = []
+    
+    for eleman in liste:
+        
+        # yeni_listedeki elemanların toplamını 
+        yeni_liste_toplami = toplam_fark(yeni_liste)
+        
+        # şimdi mevcut eleman'ın karesini de ekleyelim
+        yeni_toplam = yeni_liste_toplami + eleman**2
+        
+        # şimdi bu yeni_toplami yeni_liste'ye ekle
+        yeni_liste.append(yeni_toplam)
+        
+    return yeni_liste
+
+liste = [1,2,3]
+sonuc = kareler_toplami(liste)
+print(sonuc)
+# [1 ,5 , 15]
+
+
+# Soru 6:
+# Listenin tek index'leri (1,3,5...) toplamı ile çift index'leri (0,2,4...) toplamı arasındaki farkı veren bir fonksiyon yazınız.
+# Adı tek_cift_index_farki olsun.
+     # liste = [1,2,3,4,5,6]
+     # Tekler index'ler toplamı = 2 + 4 + 6 = 12
+     # Çift index'ler toplamı = 1 + 3 + 5 = 9
+     # tek_cift_index_farki(liste) -> 12 - 9 = 3
+# İpucu:
+     # index sıfırdan başlar
+     # sadece listeler ve index'leri kullanınız.
+     # Bu fonksiyon içinde döngü kullanmayınız.
+     # Soru 1'deki toplam() fonksiyonunu kullanınız.
+
+# Çözüm 6:
+def tek_cift_index_farki(dizi):
+    
+    # tekler listesi
+    tekler = dizi[1::2]
+    
+    # tekler toplamı
+    tekler_toplami = toplam_fark(tekler)
+    
+    # çiftler listesi
+    ciftler = dizi[::2]
+    
+    # çiftler toplamı
+    ciftler_toplami = toplam_fark(ciftler)
+    
+    # farkı bul
+    fark = tekler_toplami - ciftler_toplami
+    
+    return fark
+
+liste = [1,2,3,4,5,6]
+fark = tek_cift_index_farki(liste)
+print(fark)
+# 3
+
+# Soru 7:
+# Parametre olarak kendisine verilen listeyi kırpan bir fonksiyon yazın. Kırpma işlemi dizinin ilk ve son elemanını silmek demektir.
+# Fonksiyonumuzun adı kirpan olsun ve kendisine verilen parametreyi yerinde değiştirsin. Yani dışarıdaki orijinal listeyi modifiye etsin. Geriye hiçbir değer dönmesin. (None)        
+# Fonksiyonu şu şekilde test ediniz ve dizinin yerinde değiştiğini ispatlayınız:
+        # dizi = [1,2,3,4,5,6,7]
+        # print('kirpan fonksiyon öncesi dizi:', dizi)
+        # kirpan(dizi)
+
+# Çözüm 7:
+def kirpan(liste):
+    
+    # ilk elemanı sil
+    liste.pop(0)
+    
+    # son elemanı sil -> pop() direk son elemanı siler
+    liste.pop()
+
+#2.yol 
+# Çözüm 7:
+# def kirpan(liste):
+#     del liste[0]
+#     del liste[-1]
+
+dizi = [1,2,3,4,5,6,7]
+print('kirpan fonksiyon öncesi dizi:', dizi)
+kirpan(dizi)
+print('kirpan fonksiyon sonrası dizi:', dizi)
+# kirpan fonksiyon öncesi dizi: [1, 2, 3, 4, 5, 6, 7]
+# kirpan fonksiyon sonrası dizi: [2, 3, 4, 5, 6]
+
+
+
+# Soru 8:
+# Parametre olarak bir liste bir de sıralama tipi isteyen bir fonksiyon yazın. Adı sirala olsun.
+# Sırala Fonksiyonu, liste ile beraber tipi boolean olan azalan_mi adında bir parametre alacak. Bu parametresnin default değeri False olacak.
+# Eğer azalan_mi parametresi True ise, fonksiyon listeyi büyükten küçüğe sıralayacak,
+# Eğer azalan_mi parametresi False ise, fonksiyon listeyi küçükten büyüğe sıralayacak
+# Sonunda sıralanmış listeyi geri dönecek.
+# Notlar:
+#      Sıralama işlemi için Python List yapısının standart fonksiyonlarını kullanın
+#      Döngü kullanmayın
+#      Fonksiyon orijinal listeyi değiştirmesin
+
+# Çözüm 8:
+
+# Birinci yol
+def sirala(liste, azalan_mi = False):
+    
+    sirali_liste = []
+    
+    # azalan_mi değerine bal
+    if azalan_mi:
+        sirali_liste = sorted(liste, reverse=True)
+    else:
+        sirali_liste = sorted(liste)
+        
+    return sirali_liste
+
+# İkinci yol
+
+def sirala(liste, azalan_mi=False):
+    
+    return sorted(liste, reverse=azalan_mi)
+    
+
+a = [12, 4, 2, 1, 6, 3, 45]
+print('a:', a)
+
+sirali = sirala(a, False)
+print('sirali - artan', sirali)
+
+sirali = sirala(a, True)
+print('sirali - azalan', sirali)
+
+print('sirala sonrası a:', a)
+# a: [12, 4, 2, 1, 6, 3, 45]
+# sirali - artan [1, 2, 3, 4, 6, 12, 45]
+# sirali - azalan [45, 12, 6, 4, 3, 2, 1]
+# sirala sonrası a: [12, 4, 2, 1, 6, 3, 45]
