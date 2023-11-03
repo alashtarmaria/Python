@@ -4,8 +4,6 @@
 # Metin ve harfler alacak.
 # Eğer metin, verilen harflerin tümünü en az bir kere kullanıyorsa, True, Herhangi bir harfi kullanmıyorsa False.
 
-file = open(r'C:\Users\Marya\Desktop\python\Projeler\Proje_2_Kelimeler\kelimeler.txt')
-
 def hepsini_kullanir(metin, harfler):
     
     tumunu_kullanir = True
@@ -32,3 +30,35 @@ harfler = 'aecbd'
 metin = 'Araba demir yolundan gecti'
 print(hepsini_kullanir(metin, harfler))
 # True
+
+
+
+# Alıştırma 7:
+# 6 numaralı Alıştırma'da tanımladığımız hepsini_kullanir fonksiyonunu kullanarak:
+# Lorem kelimelerinden hangilerinin aei harflerinin hepsini kullandığını bulalım.
+def hepsini_kullanir_lorem(harfler):
+    
+    # dosyayı okuyalım
+    file = open(r'C:\Users\Marya\Desktop\python\Projeler\Proje_2_Kelimeler\kelimeler.txt')
+
+    for satir in file:
+        
+        kelime_dizisi = satir.split()
+        kelime = kelime_dizisi[0]
+        
+        # şimdi bu kelime, harfler içindeki harflerin hepsini kullanıyor mu?
+        if hepsini_kullanir(kelime, harfler):
+            print(kelime)
+
+harfler = 'aei'
+print(hepsini_kullanir_lorem(harfler))
+# feugiat
+# penatibus
+# parturient
+# venenatis
+# vitae
+# aliquet
+# sapien
+# viverra
+# vehicula
+# habitasse
