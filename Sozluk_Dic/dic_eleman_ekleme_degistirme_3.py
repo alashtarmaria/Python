@@ -7,18 +7,18 @@
 # dict[key] = value
 
 ingTR = dict()
-ingTR
+print(ingTR)
 
 
 # bir kaç eleman ekleyelim
 ingTR['one'] = 'bir'
-ingTR
+print(ingTR)
 # {'one': 'bir'}
 
 
 ingTR['two'] = 'iki'
 ingTR['three'] = 'üç'
-ingTR
+print(ingTR)
 #  {'one': 'bir', 'two': 'iki', 'three': 'üç'}
 
 
@@ -27,23 +27,23 @@ ingTR
 
 # key değeri yanlış girelim : 
 ingTR['fayf'] = 'beş'
-ingTR
+print(ingTR)
 # {'one': 'bir', 'two': 'iki', 'three': 'üç', 'fayf': 'beş'}
 
 
 # key değeri düzeltmek için: 
 ingTR['five'] = 'beş'
-ingTR
+print(ingTR)
 # {'one': 'bir', 'two': 'iki', 'three': 'üç', 'fayf': 'beş', 'five': 'beş'}
 
 
 ingTR['six'] = 'alttti'
-ingTR
+print(ingTR)
 # {'one': 'bir','two': 'iki','three': 'üç','fayf': 'beş','five': 'beş','six': 'alttti'
 
 
 ingTR['six'] = 'altı'
-ingTR
+print(ingTR)
 {'one': 'bir','two': 'iki','three': 'üç','fayf': 'beş','five': 'beş','six': 'altı'}
 
 
@@ -55,13 +55,13 @@ arac = {
     'yil': 1964
 }
 
-arac
+print(arac)
 # {'marka': 'Ford', 'model': 'Mustang', 'yil': 1964}
 
 # arac sözlüğüne renk ekleyelim
 eklenecek = {'renk': 'kırmızı'}
 arac.update(eklenecek)
-arac
+print(arac)
 # {'marka': 'Ford', 'model': 'Mustang', 'yil': 1964, 'renk': 'kırmızı'}
 
 
@@ -73,5 +73,5 @@ eklenecekler = {
 }
 
 arac.update(eklenecekler)
-arac
+print(arac)
 # {'marka': 'Ford', 'model': 'Mustang','yil': 1964,'renk': 'kırmızı','fiyat': 300000,'km': 89000,'motor': 1.6}
