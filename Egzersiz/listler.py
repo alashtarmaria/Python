@@ -292,3 +292,115 @@ print('sirala sonrası a:', a)
 # sirali - artan [1, 2, 3, 4, 6, 12, 45]
 # sirali - azalan [45, 12, 6, 4, 3, 2, 1]
 # sirala sonrası a: [12, 4, 2, 1, 6, 3, 45]
+
+
+# Soru 10:
+# Verilen bir listenin büyükten küçüğe sıralı olup olmadığını kontrol eden bir fonksiyon yazın.
+# Adı azalan_sirali_mi olsun, ve eğer liste büyükten küçüğe sıralı ise True, değilse False dönsün.
+# Yapılacaklar:
+# 4 farklı yolla çözünüz bu soruyu
+
+
+# Çözüm 10:
+
+# Yol 1:
+# İç İçe Döngüler
+# En az Pythonic
+
+def azalan_sirali_mi(liste):
+    
+    # döngü 1
+    for i, eleman_1 in enumerate(liste):
+        
+        # döngü 2
+        for j, eleman_2 in enumerate(liste):
+            if j > i:
+                if eleman_2 > eleman_1:
+                    return False
+                
+    return True
+
+dizi = [2, 7, 3, 4]
+print(azalan_sirali_mi(dizi))
+# False
+
+dizi = [2, 3, 4, 7]
+print(azalan_sirali_mi(dizi))
+# False
+
+dizi = [7, 4, 3, 2]
+print(azalan_sirali_mi(dizi))
+# True
+
+dizi = [7, 7, 4, 3, 2, 1, 1]
+print(azalan_sirali_mi(dizi))
+# True
+
+dizi = ['a', 'd', 'b', 'c']
+print(azalan_sirali_mi(dizi))
+# False
+
+dizi = ['a', 'b', 'c', 'd']
+print(azalan_sirali_mi(dizi))
+# False
+
+dizi = ['d', 'c', 'b', 'a']
+print(azalan_sirali_mi(dizi))
+# True
+
+
+# Çözüm 10:
+# Yol 2:
+# İkili Fark kontrolü
+# Biraz daha Pythonic
+
+def azalan_sirali_mi_2(liste):
+    
+    # baştan sona kadar git
+    # her elemanı kendisinden sonraki ile karşılaştır
+    # eğer fark negatif ise, o zaman azalmıyordur
+    for i in range(len(liste) - 1):
+        
+        if liste[i] - liste[i+1] < 0:
+            return False
+    
+    return True
+
+dizi = [7, 4, 3, 2]
+print(azalan_sirali_mi_2(dizi))
+# Çözüm 10:
+
+# Yol 3:
+# Sıralı liste ile kontrol
+# Pythonic
+
+def azalan_sirali_mi_3(liste):
+    
+    # yeni bir liste yarat
+    sirali_liste = liste[::]
+    
+    # sirali listeyi büyükten küçüğe sırala
+    sirali_liste.sort(reverse=True)
+    
+    # şimdi sırali_liste ile liste eşit mi
+    if liste == sirali_liste:
+        return True
+    else:
+        return False
+
+dizi = [2, 7, 3, 4]
+print(azalan_sirali_mi_3(dizi))
+
+
+# Çözüm 10:
+# Yol 4:
+# direk kontrol
+# Pythonic ve Functional
+
+def azalan_sirali_mi_4(liste):
+    
+    # direk yeni liste ile liste aynı mı ?
+    return sorted(liste, reverse=True) == liste
+
+dizi = [2, 7, 3, 4]
+print(azalan_sirali_mi_4(dizi))
