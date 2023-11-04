@@ -1,5 +1,22 @@
-# Çözüm 2:
+# Soru 2:
 
+# kelimeler.txt dosyasını okuyan ve buradaki kelimelerden bir dictionary yaratan bir fonksiyon yazın. Fonskiyon sadece 19 karakter ve üstü olan kelimeleri alsın.
+
+# Dictionary'nin key'i karakter sayısı (uzunluk) olacak, ve değeri de bu karakter sayısına sahip kelimeleri içeren bir liste (List) olacak.
+
+# Fonksiyon'un adı uzunluk_kelimeler olsun ve yarattığı Dictionary'yi dönsün.
+
+# İpucu:
+
+# kelimeler.txt dosyasını okumak için Kelimeler Uygulaması nı tekrar gözden geçirebilirsiniz.
+
+# Örnek Çıktı:
+# {19: ['anticonservationist', 'comprehensivenesses', 'counterdemonstrator', ...], 
+#  20: ['counterdemonstration', 'counterdemonstrators', 'hypersensitivenesses', ...],
+#  21: ['counterdemonstrations', 'hyperaggressivenesses', 'microminiaturizations']}
+
+
+# Çözüm 2:
 # global değişken
 MIN_KARAKTER_UZUNLUGU = 19
 
