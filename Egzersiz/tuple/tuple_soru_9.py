@@ -33,3 +33,17 @@ tuple_of_tuples = (('a', 12), ('e', 8), ('b', 16), ('c', 22))
 
 ikinci_sirali_tupler = tuple_sirala(tuple_of_tuples)
 print(ikinci_sirali_tupler)    
+
+
+
+# Çözüm 9:
+# [('a', 12), ('b', 16), ('c', 22), ('e', 8)]
+
+def tuple_sirala_2(tuple_of_tuples):
+     
+     return sorted(tuple_of_tuples, key = lambda x: x[0])
+
+
+tuple_of_tuples = (('a', 12), ('e', 8), ('b', 16), ('c', 22))
+ikinci_sirali_tupler = tuple_sirala_2(tuple_of_tuples)
+print(ikinci_sirali_tupler)        
