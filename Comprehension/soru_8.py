@@ -59,3 +59,26 @@ print(uzunluklar)
 # Bu arada Alice Harikalar Diyarında'dan verdiğimiz bu enfes metnin Türkçesi şu :)
 # Gördüğün gibi burada, bütün gücünle koşarsan ancak durduğun yerde durursun. 
 # Başka bir yere ulaşmak için bundan en azından iki kat fazla koşmalısın!
+
+
+# 
+# Çözüm 8 2.yol:
+
+def kelime_uzunluklari(metin):
+    
+    kelimeler_listesi = []
+    
+    kelimeler_uzunluk = []
+        
+    dahil_olmayan = ('the', 'in', 'as', 'at')
+    
+    for kelime in metin.split() :
+        
+        if  kelime not in dahil_olmayan:
+            kelimeler_listesi.append(kelime)
+            kelimeler_uzunluk.append(len(kelime))
+        
+    return kelimeler_listesi ,kelimeler_uzunluk
+ 
+    
+ 

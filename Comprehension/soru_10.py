@@ -17,13 +17,31 @@
 
 # Çözüm 10:
 
-def listeyi_duzlestir(liste):
+def listeyi_duzlestir_1(liste):
     
-    return [j
-            for i in liste
-            for j in i]
+    return [ic_eleman
+          for eleman in liste
+          for ic_eleman in eleman]
 
 listeler = [[8,6], [3,1,4], [2,0,9], [5]]
 
-duz_liste = listeyi_duzlestir(listeler)
+duz_liste = listeyi_duzlestir_1(listeler)
+print(duz_liste)
+
+# Çözüm 10 2.yol:
+def listeyi_duzlestir_2(liste):
+    
+    yeni_liste = []
+    
+    for eleman in liste :
+        for ic_eleman in eleman :
+            yeni_liste.append(ic_eleman)
+            
+    return yeni_liste        
+    
+    
+listeler = [[8,6], [3,1,4], [2,0,9], [5]]
+
+duz_liste = listeyi_duzlestir_2(listeler)
+
 print(duz_liste)

@@ -23,3 +23,17 @@ sayilar = [12.8, -27.2, -34.5, 58.4, -82.0, 66.6, 14.9]
 pozitifler = sadece_pozitifler(sayilar)
 
 print(pozitifler)    
+
+
+
+
+# 2.yol
+def sadece_pozitifler(sayilar):
+    
+    sayi_listesi = []
+    
+    for sayi in sayilar :
+        if sayi > 0:
+            sayi =int(sayi)
+            sayi_listesi.append(sayi)
+    return sayi_listesi    
