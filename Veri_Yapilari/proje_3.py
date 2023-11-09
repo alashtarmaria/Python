@@ -152,3 +152,27 @@ print(pride_kelimeleri[:20])
 # Şimdi Alices Adventures in Wonderland'deki kelimeleri uzundan kısaya sıralayalım
 alice_kelimeleri = liste_sirala(alice_kelimeleri, True)
 print(alice_kelimeleri[:20])
+
+
+##############################
+# Tekrarları Silelim:
+# Tekrarları silen fonksiyon yaz
+def tekrarlari_sil(liste):
+    
+    # tekrarları silmenin en tatlı -> set() -> set döner
+    kume = set(liste)
+    
+    # sonra tekrar list yap
+    tekrarsiz_liste = list(kume)
+    
+    return tekrarsiz_liste
+
+
+# Şimdi Pride and Prejudice'deki kelimeleri tekarsız görelim
+pride_kelimeleri_farkli = tekrarlari_sil(pride_kelimeleri)
+print(pride_kelimeleri_farkli[:20])
+
+
+# Şimdi Alices Adventures in Wonderland'deki kelimeleri tekarsız görelim
+alice_kelimeleri_farkli = tekrarlari_sil(alice_kelimeleri)
+print(alice_kelimeleri_farkli[:20])
