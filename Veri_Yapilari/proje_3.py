@@ -125,3 +125,30 @@ print("Pride kelimeleri :",pride_kelimeleri[:20])
 kitap_adi = 'C:\\Users\\Marya\\Desktop\\python\\Veri_Yapilari\\Alice_Adventures_in_Wonderland'
 alice_kelimeleri = kitap_oku(kitap_adi)
 print("Alice kelimeleri : ",alice_kelimeleri[:15])
+
+
+
+##############################
+# Kelimeleri Uzunluk Sırasına Dizelim:
+
+
+# Listleri sıralayan fonksiyon
+def liste_sirala(liste, azalan_mi):
+    
+    # uzunluk ile sıralayacaksak -> key parametresini vermemiz lazım -> lambda
+    return sorted(liste, reverse=azalan_mi, key = lambda x: len(x))
+
+
+# Şimdi Pride and Prejudice'deki kelimeleri kısadan uzuna sıralayalım
+pride_kelimeleri = liste_sirala(pride_kelimeleri, False)
+print(pride_kelimeleri[:20])
+
+
+# Şimdi Pride and Prejudice'deki kelimeleri uzundan kısaya sıralayalım
+pride_kelimeleri = liste_sirala(pride_kelimeleri, True)
+print(pride_kelimeleri[:20])
+
+
+# Şimdi Alices Adventures in Wonderland'deki kelimeleri uzundan kısaya sıralayalım
+alice_kelimeleri = liste_sirala(alice_kelimeleri, True)
+print(alice_kelimeleri[:20])
