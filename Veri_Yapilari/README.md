@@ -1,5 +1,5 @@
-Proje 3 - Veri Yapıları
-Proje Hakkında 
+/Proje 3 - Veri Yapıları/
+/Proje Hakkında /
 
 Telif hakkı olmadan yazılı metin kaynağı: http://gutenberg.org/
 
@@ -19,8 +19,8 @@ Bu iki kitabı Python'a okutarak kitaplarda geçen tüm kelimeleri bulalım:
 
 Bunu yaparken:
 
-noktalama işaretlerini çıkaralım -> string.punctuation
-boşluk karakterlerini (boşluk, yeni satır, tab vs.) çıkaralım -> string.whitespace
-kitapların başlangıç ve sonunu bulalım
-her işlemi kendi fonksiyonunda yapalım
-string modülünü kullanalım
+-noktalama işaretlerini çıkaralım -> string.punctuation
+-boşluk karakterlerini (boşluk, yeni satır, tab vs.) çıkaralım -> string.whitespace
+-kitapların başlangıç ve sonunu bulalım
+-her işlemi kendi fonksiyonunda yapalım
+-string modülünü kullanalım
