@@ -1,5 +1,5 @@
-/#Proje 3 - Veri Yapıları/
-/Proje Hakkında /
+#Proje 3 - Veri Yapıları
+Proje Hakkında 
 
 Telif hakkı olmadan yazılı metin kaynağı: http://gutenberg.org/
 
@@ -10,8 +10,6 @@ Alice's Adventures in Wonderland by Lewis Carroll: http://gutenberg.org/ebooks/1
 Bu projemizde iki farklı kitap üzerinde, Python kullanarak çeşitli bilgiler toplayacağız.
 
 Bu sayede hem şimdiye kadar öğrenmiş olduğumuz kavramları (değişkenler, fonksiyonlar, veri yapıları ...) tekrar etmiş olacağız hem de bu kavramları gerçek bir uygulama üzerinde görmüş olacağız.
-
-Hadi başlayalım :)
 
 Kitapları Okuyalım:
 

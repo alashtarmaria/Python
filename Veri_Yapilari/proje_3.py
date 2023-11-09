@@ -176,3 +176,82 @@ print(pride_kelimeleri_farkli[:20])
 # Şimdi Alices Adventures in Wonderland'deki kelimeleri tekarsız görelim
 alice_kelimeleri_farkli = tekrarlari_sil(alice_kelimeleri)
 print(alice_kelimeleri_farkli[:20])
+
+
+##############################
+# Kitaplardaki Toplam Kelime Sayısını Bulalım:
+
+# Kelime Sayısını Dönen Fonksiyon
+def kelime_sayisi(liste):
+    return len(liste)
+
+# Şimdi Pride and Prjudice'deki toplam ve farklı kelime sayılarını bulalım
+# toplam kelime sayısı
+pride_kelime_sayisi = kelime_sayisi(pride_kelimeleri)
+print("Pride and Prejudice'deki toplam kelime sayısı:", pride_kelime_sayisi)
+
+
+# farklı kelime sayısı
+pride_kelime_sayisi_farkli = kelime_sayisi(pride_kelimeleri_farkli)
+print("Pride and Prejudice'deki farklı kelime sayısı:", pride_kelime_sayisi_farkli)
+
+
+# Şimdi Alices Adventures in Wonderland'deki toplam ve farklı kelime sayılarını bulalım
+# toplam kelime sayısı
+alice_kelime_sayisi = kelime_sayisi(alice_kelimeleri)
+print("Alices Adventures in Wonderland'deki toplam kelime sayısı:", alice_kelime_sayisi)
+
+# farklı kelime sayısı
+alice_kelime_sayisi_farkli = kelime_sayisi(alice_kelimeleri_farkli)
+print("Alices Adventures in Wonderland'deki farklı kelime sayısı:", alice_kelime_sayisi_farkli)
+
+
+##############################
+# Hangi Kelimenin Kaç Kere Geçtiğini Bulalım:
+
+# Sözlük Sıralama Fonksiyonu
+def sozluk_sirala(sozluk):
+    
+    # önce sözlüğü valuelarına göre sıralayacak -> sorted()
+    # sorted() -> geriye liste döner
+    
+    sirali_liste = sorted(sozluk.items(), key = lambda x: x[1], reverse=True)
+    
+    return sirali_liste
+
+# En Yüksek adetli n kelimeyi veren fonksiyon
+def en_yuksek_adetli(liste, n=20):
+    
+    # sözlük olarak dönecek
+    kelime_adetleri = {
+        kelime: liste.count(kelime)
+        for kelime in liste
+    }
+    
+    # bu sözlüğü sıralamamız lazım
+    sirali_liste = sozluk_sirala(kelime_adetleri)
+    
+    # şimdi en yüksek adetli n tanesini alalım -> slice
+    sirali_liste_top_n = sirali_liste[:n]
+    
+    # şimdi sozölük olarak geri dönelim
+    return dict(sirali_liste_top_n)
+
+# Not: sakın pride_kelimeleri ile çalıştırmayın
+# bitmez :)
+alice_kelime_adetleri_fn = en_yuksek_adetli(alice_kelimeleri)
+print(alice_kelime_adetleri_fn)
+
+
+########################33
+# Counter:
+# Pride and Prejudice'deki kelimeleri ve sayıları -> Counter
+pride_kelime_adetleri = Counter(pride_kelimeleri)
+print(pride_kelime_adetleri)
+
+pride_kelime_adetleri_top_20 = Counter(pride_kelimeleri).most_common(20)
+print(pride_kelime_adetleri_top_20)
+
+# Alices Adventures in Wonderland
+alice_kelime_adetleri_top_20 = Counter(alice_kelimeleri).most_common(20)
+print(alice_kelime_adetleri_top_20)
