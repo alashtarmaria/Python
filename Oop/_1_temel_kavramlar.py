@@ -247,6 +247,186 @@ class Baykus(Kus):
 # minik_kus -> Kus türünde idi
 # minik_kus.gece_gorusu()
 
+# ------------------------------ ENCAPSULATION ---------------------------#
+
+"""
+Encapsulation (Gizleme):
+OOP'de dışarıdan direk olarak bizim class'ımız içindeki
+attribute'lara erişilmesini istemeyebiliriz.
+
+Attribute gizleme : '__' ile yapılır
+İki alt tireli (__<name>) Private olmuş olur.
+"""
+
+
+# Örneğin bir Telefon Sınıfımız olsun
+class Telefon:
+    def __init__(self):
+        # telefonun standart fiyatını belirleyelim
+        self.__fiyat = 1000
+
+    def sat(self):
+        print('Satış Fiyatı: {} TL'.format(self.__fiyat))
+
+    def set_fiyat(self, yeni_fiyat):
+        # KONTROL -> fiyat negatif mi?
+        if yeni_fiyat <= 0:
+            print('Negatif Fiyat olamaz.')
+        else:
+            self.__fiyat = yeni_fiyat
+
+    def get_fiyat(self):
+        return self.__fiyat
+
+
+
+# şimdi bir telefon nesnesi yarat
+tel = Telefon()
+# AttributeError: 'Telefon' object has no attribute '__fiyat'
+# çünkü __fiyat -> Private
+# print(tel.__fiyat)
+
+# telefon sat
+# tel.sat()   # 1000 TL
+
+# telefon fiyatını elle (dışarıdan) değiştirmeye çalışsak
+# tel.__fiyat = 5000
+
+# telefon sat
+# tel.sat() # 1000
+# tekrar 1000 TL gelmesinin sebebi -> tel.__fiyat -> classın içindeki __fiyat değil
+# print(tel.__fiyat)
+
+# nesneye class'tan bağımsız olarak özellik verebilirsiniz
+# tel.renk = 'Siyah'
+# print(tel.renk)
+
+"""
+tel.renk = 'Siyah'
+Python'da herhangi bir nesneye dışarıdan (class'tan bağımsız) özellik verebilirsiniz.
+Ama bu özellik class'a yansımaz.
+"""
+
+# Fiyatı gerçekten set etmek (tanımlamak) istesek
+tel.set_fiyat(8000)
+# tel.sat()
+
+# sadece fiyatı görmek istiyorum -> get_fiyat
+# tel.__fiyat -> tel.get_fiyat()
+# fiyat = tel.get_fiyat()
+# print(fiyat)
+
+"""
+Get-Set Metoları -> Getter-Setter
+Class'ın private attribute'ları için alma ve set etme işlemlerini yapar.
+"""
+
+"""
+Peki neden Encapsulation?
+Kontrolün Class'ta olması için var.
+Set Metodunda kontrol yapılır.
+"""
+
+# Örnek:
+# Fiyatı -2000 TL vermek istese
+# tel.set_fiyat(-2000)
+# print(tel.get_fiyat())
+
+
+# ------------------------------ POLYMORPHISM ---------------------------#
+
+"""
+Polymporphism:
+Çok şekillilik -> Bir arayüz (interface) farklı yerlerde farklı amaçlar için kullanılır.
+"""
+
+# Yukarıda Kuş öreneğimiz
+# Kus ana sınıfı vardır (parent class)
+
+
+# Kuş Sınıfını yaratalım
+class Kus:
+    def __init__(self):
+        print('Kuş yaratıldı.')
+
+    def kimimBen(self):
+        print('Ben bir Kuşum.')
+
+    def ucma(self):
+        print('Kuşlar uçabilir.')
+
+    def yuzme(self):
+        print('Kuşlar yüzebilir.')
+
+
+# Baykuş -> Kus'tan kalıtım aldı  -> ama bazı özellikleri kendisine has
+# child class - derived class
+class Baykus(Kus):
+    # Bir sınıf hangi sınıftan kalıtım alıyorsa, parantez içinde ana sınıf yazılır.
+
+    def __init__(self):
+        # önce ana sınıfının, super(), __init__() metodunu çağır
+        # super().__init__()
+        print('Baykuş yaratıldı.')
+
+    def kimimBen(self):
+        print('Ben bir Baykuşum.')
+
+    # Baykuş da tüm kuşlar gibi uçtuğu için ucma() metodunu overrirde (ezmek) etmeye gerek yok
+    # aynen kullanacağız
+
+    def yuzme(self):
+        print('Baykuşlar yüzemez.')
+
+    # Baykuşların gece görüşü vardır.
+    def gece_gorusu(self):
+        print("Baykuşun gece görüşü vardır.")
+
+
+# Kus ana sınıfından kalıtım alan bir kuş daha
+class Penguen(Kus):
+    def __init__(self):
+        # super().__init__()
+        print('Penguen yaratıldı.')
+
+    def kimimBen(self):
+        print('Ben bir Penguenim.')
+
+    def ucma(self):  # override
+        print('Penguenler uçamaz.')
+
+    # Penguenler yüzdüğü için -> yuzme() metedu ana class'ta kalsın
+
+
+# Aynı sınıftan (Kus) kalıtım almış iki alt sınıfımız var (Baykus, Penguen)
+# Polymorphism'i bir örnek ile görelim
+
+
+# ortak arayüz
+# ucma'yı test eden bir fonksiyon
+def ucabilir_mi(kus):
+    # parametre olarak gelen kus nesnesinin ucma metodunu çağır
+    kus.ucma()
+
+
+# şimdi üç adet nesne yaratalım
+kus = Kus()
+baykus = Baykus()
+penguen = Penguen()
+
+print("---------- uçma testi -----------")
+
+# uçmayı test edelim
+ucabilir_mi(kus)
+ucabilir_mi(baykus)
+ucabilir_mi(penguen)
+
+# Bakın ucabilir_mi() Kus sınıfı türünden
+# bir nesne aldı ve onun ucma() metodunu çağırdı.
+# ucma() metodu çağrıldığı yere göre farklı davrandı
+# işte aynı arayüzün farkı verilere göre farklı sonuçlar vermesine
+# Polymorphism denir.
+
 
 
 
