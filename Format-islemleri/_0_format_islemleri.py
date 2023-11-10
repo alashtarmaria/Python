@@ -17,5 +17,7 @@ Python'da String Formatlama 4 yol ile yapılır:
 
 # import _4_template_strings
 
+# import QUIZ_COZUM_Format_Islemleri
+
 import sys
 sys.path.append(r'C:\Users\Marya\Desktop\python\Format-islemleri')
