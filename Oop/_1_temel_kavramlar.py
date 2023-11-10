@@ -179,6 +179,77 @@ neseli_ayaklar = Penguen('Neşeli Ayaklar', 1, 'Gri-Papyon')
 
 
 
+# ------------------------------ KALITIM ---------------------------#
+
+"""
+Kalıtım (Inheritance):
+Aynen gerçek hayattaki gibi, OOP'de Class'lar birbirinden Kalıtım alabilirler.
+Kalıtım Alan Class -> Child Class, Derived Class (Çocuk Classı)
+Kalıtım Veren Class -> Parent Class, Base Class (Ana Class) - Super
+"""
+
+
+# Kuş Sınıfını yaratalım
+class Kus:
+    def __init__(self):
+        print('Kuş yaratıldı.')
+
+    def kimimBen(self):
+        print('Ben bir Kuşum.')
+
+    def ucma(self):
+        print('Kuşlar uçabilir.')
+
+    def yuzme(self):
+        print('Kuşlar yüzebilir.')
+
+
+# bir Kuş nenesi yarat
+# minik_kus = Kus()
+# minik_kus.kimimBen()
+# minik_kus.ucma()
+# minik_kus.yuzme()
+
+
+# Kuş türleri için bir ana class'ımız var.
+# Baykuş da bir kuş -> child class
+
+
+# child class - derived class
+class Baykus(Kus):
+    # Bir sınıf hangi sınıftan kalıtım alıyorsa, parantez içinde ana sınıf yazılır.
+
+    def __init__(self):
+        # önce ana sınıfının, super(), __init__() metodunu çağır
+        super().__init__()
+        print('Baykuş yaratıldı.')
+
+    def kimimBen(self):
+        print('Ben bir Baykuşum.')
+
+    # Baykuş da tüm kuşlar gibi uçtuğu için ucma() metodunu overrirde (ezmek) etmeye gerek yok
+    # aynen kullanacağız
+
+    def yuzme(self):
+        print('Baykuşlar yüzemez.')
+
+    # Baykuşların gece görüşü vardır.
+    def gece_gorusu(self):
+        print("Baykuşun gece görüşü vardır.")
+
+
+# kucuk_baykus = Baykus()
+# kucuk_baykus.kimimBen()
+# kucuk_baykus.ucma()
+# kucuk_baykus.yuzme()
+# kucuk_baykus.gece_gorusu()
+
+# minik_kus -> Kus türünde idi
+# minik_kus.gece_gorusu()
+
+
+
+
 
 
 
