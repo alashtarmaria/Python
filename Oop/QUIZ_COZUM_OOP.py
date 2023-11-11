@@ -92,4 +92,31 @@ ogrenci.derse_katil('Yapay Zeka')
 # print(ogrenci.get_dersler())
 
 # --------------------------------------------------------------------------------------#
+# Çözüm 3:
+import math
+
+class Point:
+    """(x,y) koordinat düzlemindeki bir noktayı gösterir."""
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def uzaklik(self, diger):
+        x_ler_farki = self.x - diger.x
+        y_ler_farki = self.y - diger.y
+        d = math.sqrt(x_ler_farki**2 + y_ler_farki**2)
+        return d
+
+
+nokta_1 = Point(1, 7)
+nokta_2 = Point(4, 3)
+
+# docstring'i yazdır
+# print(nokta_1.__doc__)
+
+uzaklik = nokta_1.uzaklik(nokta_2)
+print(uzaklik)
+
+# --------------------------------------------------------------------------------------#
 
