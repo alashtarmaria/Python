@@ -119,4 +119,87 @@ uzaklik = nokta_1.uzaklik(nokta_2)
 print(uzaklik)
 
 # --------------------------------------------------------------------------------------#
+# Soru 4:
+"""
+İsmi Rectangle olan bir class tanımlayın. 
+X-Y koordinat düzleminde bir dikdörtgeni temsil etsin.
+Docstring'i şu olsun: "(x,y) koordinat düzlemindeki bir dikdörtgeni gösterir."
 
+Rectangle'in 4 attribute'u vardır: 
+    * kose_1 (Point)
+    * kose_2 (Point)
+    * kose_3 (Point)
+    * kose_4 (Point)
+Bu dört köşenin tipi Soru 3'de tanımladığınız Point class'ıdır.
+
+Köşelerden 1 ve 2 aynı doğru üzerinde, 3 ve 4 aynı doğru üzerindedir.
+
+1..............2
+.              .
+.              .
+.              .
+3..............4
+
+Rectangle'in __init__() metodunu tanımlayın.
+Ek olarak enini ve boyunu hesaplayan metodları vardır:
+    * en = 1 - 2 arası mesafe  -> en_hesapla()
+    * boy = 1 - 3 arası mesafe -> boy_hesapla()
+Rectangle bu mesafeleri hesaplamak için Point class'ını kullanır.
+
+Son olarak alan hesaplayan bir metodu vardır. Adı 'alan'.
+'alan' metodu dikdörtgenin alanını hesaplayarak döner.
+
+Örnek çağırma:
+p_1 = Point(5, 8)
+p_2 = Point(9, 8)
+p_3 = Point(5, 2)
+p_4 = Point(9, 2)
+
+en = rect.en
+boy = rect.boy
+alan = rect.alan()
+
+Beklenen Sonuç:
+en: 4.0
+boy: 6.0
+alan: 24.0
+"""
+
+# Çözüm 4:
+class Rectangle:
+    """(x,y) koordinat düzlemindeki bir dikdörtgeni gösterir."""
+
+    def __init__(self, p_1, p_2, p_3, p_4):
+        self.kose_1 = p_1
+        self.kose_2 = p_2
+        self.kose_3 = p_3
+        self.kose_4 = p_4
+        self.en_hesapla()
+        self.boy_hesapla()
+
+    def en_hesapla(self):
+        self.en = self.kose_1.uzaklik(self.kose_2)
+
+    def boy_hesapla(self):
+        self.boy = self.kose_1.uzaklik(self.kose_3)
+
+    def alan(self):
+        return self.en * self.boy
+
+
+p_1 = Point(5, 8)
+p_2 = Point(9, 8)
+p_3 = Point(5, 2)
+p_4 = Point(9, 2)
+
+rect = Rectangle(p_1, p_2, p_3, p_4)
+
+en = rect.en
+boy = rect.boy
+alan = rect.alan()
+
+# print('en:', en)
+# print('boy:', boy)
+# print('alan:', alan)
+
+# --------------------------------------------------------------------------------------#
